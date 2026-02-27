@@ -1,0 +1,54 @@
+{
+	email {$EMAIL}
+	log {
+		format console
+	}
+}
+
+matheuslp.com {
+	redir https://www.{host}{uri}
+}
+www.matheuslp.com {
+	reverse_proxy mlp-homepage:8000
+}
+
+panel.matheuslp.com {
+	reverse_proxy panel:80
+}
+
+node1.matheuslp.com {
+	reverse_proxy wings:8081
+}
+
+cloud.matheuslp.com:443 {
+	reverse_proxy nextcloud-aio-apache:11000
+}
+
+aio.cloud.matheuslp.com {
+	reverse_proxy https://nextcloud-aio-mastercontainer:8080 {
+		transport http {
+		    tls_insecure_skip_verify
+		}
+	}
+}
+
+immich.matheuslp.com {
+	reverse_proxy immich-server:2283
+}
+
+
+vogelbirb.com {
+	handle_path /s/* {
+		rewrite /public.php/dav/files{uri}
+		reverse_proxy https://cloud.matheuslp.com {
+			header_up Host {upstream_hostport}
+		}
+        }
+
+	handle / {
+		redir https://www.{host}{uri}
+	}
+}
+www.vogelbirb.com {
+	reverse_proxy vogelbirb-homepage:3000
+}

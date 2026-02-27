@@ -1,0 +1,9 @@
+services:
+  vogelbirb-homepage:
+    build: https://github.com/vogelbirb/vogelbirb-homepage.git
+    networks:
+      - web-net
+
+networks:
+  web-net:
+    external: true
