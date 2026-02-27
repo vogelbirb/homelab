@@ -1,0 +1,13 @@
+services:
+  mlp-homepage:
+    build: https://github.com/mrchilliballs/mlp-homepage.git
+    restart: unless-stopped
+    environment:
+      - ROCKET_ADDRESS=0.0.0.0
+      - ROCKET_PORT=8000
+    networks:
+      - web-net
+        
+networks:
+  web-net:
+    external: true
