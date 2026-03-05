@@ -1,2 +1,3 @@
-# self-hosting
-My configurations for the various services I self-host
+# homelab
+Configuration files for my self-hosted services.
+
