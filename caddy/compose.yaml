@@ -15,7 +15,7 @@ services:
     networks:
       - web-net
     environment:
-      EMAIL: ${EMAIL}
+      EMAIL: ${EMAIL?error}
     configs:
       - source: caddyfile
         target: /etc/caddy/Caddyfile
