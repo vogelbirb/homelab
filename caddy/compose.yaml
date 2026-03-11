@@ -15,7 +15,9 @@ services:
     networks:
       - web-net
     environment:
+      # Caddyfile env vars
       EMAIL: ${EMAIL?error}
+      PASSWORD_HASH: ${PASSWORD_HASH?error}
     configs:
       - source: caddyfile
         target: /etc/caddy/Caddyfile
