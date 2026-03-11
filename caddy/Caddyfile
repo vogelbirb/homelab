@@ -21,6 +21,7 @@ cloud.matheuslp.com {
 
 aio.matheuslp.com {
 	reverse_proxy https://nextcloud-aio-mastercontainer:8080 {
+	        header_up Host {host}
 		transport http {
 		    tls_insecure_skip_verify
 		}
