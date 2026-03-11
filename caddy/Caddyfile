@@ -20,6 +20,9 @@ cloud.matheuslp.com {
 }
 
 aio.matheuslp.com {
+	basic_auth argon2id {
+ 		admin {$PASSWORD_HASH}
+ 	}
 	reverse_proxy https://nextcloud-aio-mastercontainer:8080 {
 	        header_up Host {host}
 		transport http {
