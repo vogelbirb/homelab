@@ -75,6 +75,8 @@ services:
 
 volumes:
   model-cache:
+  immich-library:
+  immich-postgres:
 networks:
   web-net:
     external: true
