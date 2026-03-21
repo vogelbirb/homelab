@@ -9,8 +9,11 @@ services:
       - "80:80"
       - "443:443"
       - "443:443/udp"
+      - "2283:2283"
+      - "2283:2283/udp"
     volumes:
       - caddy_data:/data
+      - ./conf:/etc/caddy
       - caddy_config:/config
     networks:
       - web-net
@@ -18,13 +21,6 @@ services:
       # Caddyfile env vars
       EMAIL: ${EMAIL?error}
       PASSWORD_HASH: ${PASSWORD_HASH?error}
-    configs:
-      - source: caddyfile
-        target: /etc/caddy/Caddyfile
-
-configs:
-  caddyfile:
-    file: ./Caddyfile
 
 volumes:
   caddy_data:
