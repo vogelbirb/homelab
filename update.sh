@@ -4,7 +4,7 @@ update_container() {
 	docker compose up -d
 }
 
-cd /home/matheus/containers
+cd /srv/docker
 for d in ./*/
 do 
 	(cd $d && update_container)
