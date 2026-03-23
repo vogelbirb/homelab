@@ -1,6 +1,7 @@
 services:
   cloudflare-ddns:
     image: favonia/cloudflare-ddns:latest
+    container_name: cloudflare-ddns
     # Choose the appropriate tag based on your need:
     # - "latest" for the latest stable version (which could become 2.x.y
     #   in the future and break things)
@@ -24,7 +25,7 @@ services:
     environment:
       - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN?error}
         # Your Cloudflare API token
-      - DOMAINS=cloud.matheuslp.com,aio.matheuslp.com,immich.matheuslp.com,dozzle.matheuslp.com
+      - DOMAINS=cloud.matheuslp.com,aio.matheuslp.com,immich.matheuslp.com,dozzle.matheuslp.com,fmd.matheuslp.com
         # Your domains (separated by commas)
       - PROXIED=true
         # Tell Cloudflare to cache webpages and hide your IP (optional)
