@@ -25,7 +25,7 @@ services:
     environment:
       - CLOUDFLARE_API_TOKEN=${CLOUDFLARE_API_TOKEN?error}
         # Your Cloudflare API token
-      - DOMAINS=cloud.matheuslp.com,aio.matheuslp.com,immich.matheuslp.com,dozzle.matheuslp.com,fmd.matheuslp.com
+      - DOMAINS=cloud.matheuslp.com,aio.matheuslp.com,immich.matheuslp.com,dozzle.matheuslp.com,fmd.matheuslp.com,ntfy.matheuslp.com
         # Your domains (separated by commas)
       - PROXIED=true
         # Tell Cloudflare to cache webpages and hide your IP (optional)
