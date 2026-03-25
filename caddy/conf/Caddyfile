@@ -36,13 +36,6 @@ immich.matheuslp.com {
 	reverse_proxy immich-server:2283
 }
 
-dozzle.matheuslp.com {
-	basic_auth argon2id {
-		matheus {$PASSWORD_HASH}
-	}
-	reverse_proxy dozzle:8080
-}
-
 fmd.matheuslp.com {
 	reverse_proxy fmd:8080
 }
