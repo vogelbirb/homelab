@@ -46,3 +46,7 @@ dozzle.matheuslp.com {
 fmd.matheuslp.com {
 	reverse_proxy fmd:8080
 }
+
+ntfy.matheuslp.com {
+	reverse_proxy ntfy:80
+}
