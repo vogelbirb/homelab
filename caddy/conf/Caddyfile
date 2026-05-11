@@ -43,3 +43,7 @@ fmd.matheuslp.com {
 ntfy.matheuslp.com {
 	reverse_proxy ntfy:80
 }
+
+plausible.matheuslp.com {
+	reverse_proxy plausible:8000
+}
