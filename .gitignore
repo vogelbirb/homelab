@@ -1,1 +1,4 @@
 */.env
+*/*.env
+# TODO: add this back later
+authelia/

@@ -11,7 +11,7 @@ services:
     networks:
       - ip6net
     # This bypasses network isolation and makes IPv6 easier (optional; see below)
-    restart: always
+    restart: unless-stopped
     # Restart the updater after reboot
     user: "1000:1000"
     # Run the updater with specific user and group IDs (in that order).

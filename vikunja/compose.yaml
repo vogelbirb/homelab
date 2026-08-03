@@ -1,0 +1,33 @@
+services:
+  vikunja:
+    image: vikunja/vikunja:2.4.0
+    container_name: vikunja
+    user: 0:0
+    networks:
+      - default
+      - web-net
+    env_file: .env
+    environment:
+      VIKUNJA_SERVICE_PUBLICURL: https://vikunja.matheuslp.com/
+      VIKUNJA_DATABASE_PATH: /db/vikunja.db
+      VIKUNJA_SERVICE_ENABLEREGISTRATION: false
+      VIKUNJA_AUTH_OPENID_ENABLED: true
+      VIKUNJA_AUTH_OPENID_PROVIDERS_authelia_NAME: 'Authelia'
+      VIKUNJA_AUTH_OPENID_PROVIDERS_authelia_AUTHURL: 'https://auth.matheuslp.com'
+      VIKUNJA_AUTH_OPENID_PROVIDERS_authelia_CLIENTID: '5jDOU.IQQvl2ZqO6T9TU-xHT~hLrgGZj3VKRxiDyaY2NCfJiCfDQ8b_Z.cWe0gFNceJgPuud'
+      VIKUNJA_AUTH_OPENID_PROVIDERS_authelia_SCOPE: "openid profile email"
+      VIKUNJA_AUTH_LOCAL_ENABLED: false
+    # ports:
+      # - 127.0.0.1:3456:3456
+    volumes:
+      - files:/app/vikunja/files
+      - db:/db
+    restart: unless-stopped
+
+networks:
+  web-net:
+    external: true
+
+volumes:
+  files:
+  db:

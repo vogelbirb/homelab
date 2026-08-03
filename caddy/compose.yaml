@@ -1,27 +1,26 @@
 services:
-  # Reverse proxy
   caddy:
-    image: caddy:latest
+    build: .
     container_name: caddy
     restart: always
     cap_add:
       - NET_ADMIN
+    # network_mode: host
     ports:
       - "80:80"
       - "443:443"
       - "443:443/udp"
-      - "2283:2283"
-      - "2283:2283/udp"
     volumes:
       - caddy_data:/data
       - ./conf:/etc/caddy
       - caddy_config:/config
+      - /srv/vogelbirb-homepage:/srv/vogelbirb-homepage
+    hostname: caddy
     networks:
-      - web-net
-    environment:
-      # Caddyfile env vars
-      EMAIL: ${EMAIL?error}
-      PASSWORD_HASH: ${PASSWORD_HASH?error}
+      web-net:
+      # lan:
+      #   ipv4_address: 192.168.1.50
+    env_file: ".env"
 
 volumes:
   caddy_data:
@@ -30,3 +29,14 @@ volumes:
 networks:
   web-net:
     external: true
+  # lan:
+  #   driver: ipvlan
+  #   driver_opts:
+  #     parent: ens18
+  #     mode: l2
+  #   ipam:
+  #     driver: default
+  #     config:
+  #       - subnet: 192.168.1.0/24
+  #         gateway: 192.168.1.254
+  #         ip_range: 192.168.1.48/29
