@@ -7,7 +7,7 @@ services:
       - web-net
     environment:
       DOMAIN: "https://vault.matheuslp.com"
-      SIGNUPS_ALLOWED: "false"
+      # SIGNUPS_ALLOWED: false
     volumes:
       - data:/data/
 

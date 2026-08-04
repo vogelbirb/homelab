@@ -109,18 +109,10 @@ pi-hole.matheuslp.com {
 # }
 
 vikunja.matheuslp.com {
-	forward_auth authelia:9091 {
-		uri /api/authz/forward-auth
-		copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-	}
 	reverse_proxy vikunja:3456
 }
 
 paperless.matheuslp.com {
-	forward_auth authelia:9091 {
-		uri /api/authz/forward-auth
-		copy_headers Remote-User Remote-Groups Remote-Email Remote-Name
-	}
 	reverse_proxy paperless-ngx:8000
 }
 
@@ -145,7 +137,5 @@ vault.matheuslp.com {
 
 	# import admin_redir
 
-	reverse_proxy vaultwarden:80 {
-		header_up X-Real-IP {remote_host}
-	}
+	reverse_proxy vaultwarden:80
 }
