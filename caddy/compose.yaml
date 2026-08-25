@@ -14,7 +14,6 @@ services:
       - caddy_data:/data
       - ./conf:/etc/caddy
       - caddy_config:/config
-      - /srv/vogelbirb-homepage:/srv/vogelbirb-homepage
     hostname: caddy
     networks:
       web-net:
